@@ -1,0 +1,23 @@
+label{
+    display:block;
+    float: left;
+    clear: left;
+    width: 100px;
+    text-align: left;
+}
+
+.buttonBlock{
+    display:block;
+}
+.queryObject, .queryExhibition, .queryPerson, .queryPublication{
+    display:block;
+    width: 300px;
+}
+
+.inline-block {
+    display: inline-block;
+    width: 100%;
+ }
+ .inline-block p{
+   float: left;
+ }

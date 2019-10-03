@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="main.js"> </script>
+</head>
+
+<body>
+
+<form id="objectSearchForm" onsubmit="return false">
+        <p> Search For Objects: </p>
+        <label> Keyword: </label> <input type="text" placeholder='a keyword search string; this parameter searches object titles, artists, description, classification, culture, and worktype'  class="queryObject" name="keyword"> 
+        <label> Exhibition ID: </label> <input type="text" placeholder='EXHIBITION ID or "any" or "none"' class="queryObject" name="exhibition">
+        <label> Person: </label> <input type="text" placeholder='PERSON ID or pipe separated list of PERSON IDs or PERSON NAME or "any"' class="queryObject" name="person"> 
+        <label> Place: </label> <input type="text" placeholder='"PLACE ID" or pipe separated list of PLACE IDs or PLACE NAME or "any"' class="queryObject" name="place"> 
+        <label> Period: </label> <input type="text" placeholder='PERIOD or pipe separated list of periods or "any"'        class="queryObject" name="period">
+        <label> Gallery: </label> <input type="text" placeholder="GALLERY NUMBER or pipe separated list of gallery numbers" class="queryObject" name="period">
+        <label> Title: </label> <input type="text" placeholder= "1 or more term" class="queryObject" name="title">
+        <label> Year Made: </label> <input type="text" placeholder="four digit year" class="queryObject" name="yearmade">
+        <label> SUBMIT </label> <input type="submit" value="Submit">
+</form>
+<div id="afterSearchForm"> </div>
+
+<script>
+    document.getElementById("objectSearchForm").addEventListener("submit", () => searchParams("queryObject", "afterSearchForm", "object"));
+</script>
+
+
+<form id="exhibitionSearchForm" onsubmit="return false">
+        <p> Search For Exhibitions: </p>
+        <label> Sort: </label> <input type="text" placeholder='"FIELD NAME" or "chronological" or "random"' class="queryExhibition" name="sort" > 
+        <label> Sort Order: </label> <input type="text" placeholder="asc or desc" class="queryExhibition" name="sortorder">
+        <label> Fields: </label> <input type="text" placeholder="comma separated list of data fields you want in the output" class="queryExhibition" name="fields"> 
+        <label> Aggregation: </label> <input type="text" placeholder="google Elasticsearch aggregations" class="queryExhibition" name="aggregation"> 
+        <label> Has Image: </label> <input type="text" placeholder="0 or 1" class="queryExhibition" name="hasimage">
+        <label> Venue </label> <input type="text" placeholder="'HAM'" class="queryExhibition" name="venue">
+        <label> Status </label> <input type="text" placeholder='“current”, “past”, “upcoming”' class="queryExhibition" name="status">
+        <label> Exact_Title </label> <input type="text" placeholder="EXACT URL ENCODED TITLE" class="queryExhibition" name="exact_title">
+        <label> Before </label> <input type="text" placeholder="YYYY-MM-DD" class="queryExhibition" name="before">
+        <label> After </label> <input type="text" placeholder="YYYY-MM-DD" class="queryExhibition" name="after">
+
+        <label> SUBMIT </label> <input type="submit" value="Submit">
+</form>
+<div id="afterExhibitionSearchForm"> </div>
+
+<script>
+        document.getElementById("exhibitionSearchForm").addEventListener("submit", () => searchParams("queryExhibition", "afterExhibitionSearchForm", "exhibition"));
+</script>
+
+<form id="personSearchForm" onsubmit="return false">
+        <p> Search For People: </p>
+        <label> Sort: </label> <input type="text" placeholder='"FIELD NAME" or "random" or "random:[SEED NUMBER]"' class="queryPerson" name="sort" > 
+        <label> Sort Order: </label> <input type="text" placeholder="asc or desc" class="queryPerson" name="sortorder">
+        <label> Fields: </label> <input type="text" placeholder="comma separated list of data fields you want in the output" class="queryPerson" name="fields"> 
+        <label> Aggregation: </label> <input type="text" placeholder="google Elasticsearch aggregations" class="queryPerson" name="aggregation"> 
+        <label> SUBMIT </label> <input type="submit" value="Submit">
+</form>
+<div id="afterPersonSearchForm"> </div>
+
+<script>
+        document.getElementById("personSearchForm").addEventListener("submit", () => searchParams("queryPerson", "afterPersonSearchForm", "person"));
+</script>
+
+<form id="publicationSearchForm" onsubmit="return false">
+        <p> Search For Publications: </p>
+        <label> Sort: </label> <input type="text" placeholder='"FIELD NAME" or "random" or "random:[SEED NUMBER]"' class="queryPublication" name="sort" > 
+        <label> Sort Order: </label> <input type="text" placeholder="asc or desc" class="queryPublication" name="sortorder">
+        <label> Fields: </label> <input type="text" placeholder="comma separated list of data fields you want in the output" class="queryPublication" name="fields"> 
+        <label> Aggregation: </label> <input type="text" placeholder="google Elasticsearch aggregations" class="queryPublication" name="aggregation"> 
+        <label> Has Image: </label> <input type="text" placeholder="0 or 1" class="queryPublication" name="hasimage"> 
+        <label> SUBMIT </label> <input type="submit" value="Submit">
+</form>
+<div id="afterPublicationSearchForm"> </div>
+
+<script>
+        document.getElementById("publicationSearchForm").addEventListener("submit", () => searchParams("queryPublication", "afterPublicationSearchForm", "publication"));
+</script>
+
+<p> Galleries (click to view contained objects): </p>
+<script>
+        getGalleries();
+</script>
+    
+
+</body>
+</html>
